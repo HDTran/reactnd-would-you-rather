@@ -17,6 +17,7 @@ class Login extends Component {
         </header>
         {users && users.map((user) => (
           <div key={user.id} onClick={(e) => { this.handleLogin(user.id); }}>
+            <img src={user.avatarURL} alt={user.name} width="100" />
             {user.name}
           </div>
         ))}
