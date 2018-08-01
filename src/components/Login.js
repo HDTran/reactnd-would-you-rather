@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {
+  handleLogin(id) {
+    const { dispatch } = this.props;
+    dispatch(setAuthedUser(id));
+  }
   render() {
     const { users } = this.props;
 
@@ -11,7 +16,7 @@ class Login extends Component {
           <h1 className="app-title">Login</h1>
         </header>
         {users && users.map((user) => (
-          <div key={user.id}>
+          <div key={user.id} onClick={(e) => { this.handleLogin(user.id); }}>
             {user.name}
           </div>
         ))}

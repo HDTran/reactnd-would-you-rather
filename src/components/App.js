@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { LoadingBar } from 'react-redux-loading';
 import { handleInitialData } from '../actions/shared';
 import Login from '../components/Login';
+import Nav from '../components/Nav';
+import Dashboard from '../components/Dashboard';
+import QuestionPage from '../components/QuestionPage';
+import NewQuestion from '../components/NewQuestion';
+import Leaderboard from '../components/Leaderboard';
 import '../App.css';
 
 class App extends Component {
@@ -11,32 +17,23 @@ class App extends Component {
   }
   render() {
     return (
-      <Fragment>
-        <LoadingBar />
-        <div className="app">
-          <div className="top-navigation">
-            <div className="container">
-              <ul>
-                <li className="col-12 col-md-3"><a href="/">Home</a></li>
-                <li className="col-12 col-md-3"><a href="/add">New Question</a></li>
-                <li className="col-12 col-md-3"><a href="/leaderboard">Leader Board</a></li>
-                <li className="col-12 col-md-3"><a href="/">User. Logout</a></li>
-              </ul>
-            </div>
+      <Router>
+        <Fragment>
+          <LoadingBar/>
+          <div className="app">
+            <Nav/>
+            {this.props.loading === true
+                ? <Login/>
+                : <div>
+                    <Route path='/' exact component={Dashboard} />
+                    <Route path='/add' component={NewQuestion} />
+                    <Route path='/questions/:id' component={QuestionPage} />
+                    <Route path='/leaderboard' component={Leaderboard} />
+                  </div>
+            }
           </div>
-          {this.props.loading === true
-              ? <Login/>
-              : <div className="container">
-                  <header className="app-header">
-                    <h1 className="app-title">H1</h1>
-                  </header>
-                  <p className="app-intro">
-                    Text.
-                  </p>
-                </div>
-          }
-        </div>
-      </Fragment>
+        </Fragment>
+      </Router>
     );
   }
 }
