@@ -1,19 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { LoadingBar } from 'react-redux-loading';
+import { handleInitialData } from '../actions/shared';
 import '../App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="app">
+        <LoadingBar />
+        <div className="top-navigation">
+          <div className="container">
+            <ul>
+              <li className="col-12 col-md-3"><a href="/">Home</a></li>
+              <li className="col-12 col-md-3"><a href="/add">New Question</a></li>
+              <li className="col-12 col-md-3"><a href="/leaderboard">Leader Board</a></li>
+              <li className="col-12 col-md-3"><a href="/">User. Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="container">
+          <header className="app-header">
+            <h1 className="app-title">H1</h1>
+          </header>
+          <p className="app-intro">
+            Text.
+          </p>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);
