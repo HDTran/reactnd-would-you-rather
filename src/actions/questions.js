@@ -1,32 +1,31 @@
-// import { saveLikeToggle, saveTweet } from '../utils/api';
-import { saveQuestionAnswer } from '../utils/api';
+import { saveQuestion, saveQuestionAnswer } from '../utils/api';
 import { showLoading, hideLoading } from 'react-redux-loading';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
-// export const ADD_QUESTION = 'ADD_QUESTION';
+export const ADD_QUESTION = 'ADD_QUESTION';
 
-// function addTweet(tweet) {
-//   return {
-//     type: ADD_QUESTION,
-//     tweet
-//   }
-// }
+function addQuestion(question) {
+  return {
+    type: ADD_QUESTION,
+    question
+  }
+}
 
-// export function handleAddTweet (text, replyingTo) {
-//   return (dispatch, getState) => {
-//     const { authedUser } = getState();
+export function handleAddQuestion (optionOneText, optionTwoText) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
 
-//     dispatch(showLoading());
-//     return saveTweet({
-//       text,
-//       author: authedUser,
-//       replyingTo
-//     })
-//       .then((tweet) => dispatch(addTweet(tweet)))
-//       .then(() => dispatch(hideLoading()));
-//   }
-// }
+    dispatch(showLoading());
+    return saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser
+    })
+    .then((question) => dispatch(addQuestion(question)))
+    .then(() => dispatch(hideLoading()));
+  }
+}
 
 export function receiveQuestions (questions) {
   return {
