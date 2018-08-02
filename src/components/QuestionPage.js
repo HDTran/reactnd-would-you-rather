@@ -29,8 +29,8 @@ class QuestionPage extends Component {
                   <p className="card-text">{question.authorName} asks, would you rather <strong>{question.optionOne.text}</strong> or <strong>{question.optionTwo.text}</strong>?</p>
                   {question.answered ? (
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{question.optionOne.votes.length} of {question.optionOne.votes.length + question.optionTwo.votes.length} chose {question.optionOne.text}.</li>
-                    <li className="list-group-item">{question.optionTwo.votes.length} of {question.optionOne.votes.length + question.optionTwo.votes.length} chose {question.optionTwo.text}.</li>
+                    <li className="list-group-item">{question.optionOne.votes.length} ({question.optionOne.votes.length === 0 ? '0': Number(question.optionOne.votes.length/(question.optionOne.votes.length + question.optionTwo.votes.length)*100).toFixed(2).toString()}%) of {question.optionOne.votes.length + question.optionTwo.votes.length} chose {question.optionOne.text}.</li>
+                    <li className="list-group-item">{question.optionTwo.votes.length} ({question.optionTwo.votes.length === 0 ? '0': Number(question.optionTwo.votes.length/(question.optionOne.votes.length + question.optionTwo.votes.length)*100).toFixed(2).toString()}%) of {question.optionOne.votes.length + question.optionTwo.votes.length} chose {question.optionTwo.text}.</li>
                     <li className="list-group-item"><div className="alert alert-success" role="alert">You've answered, {question.optionOne.votes.includes(authedUser) ? (<strong>{question.optionOne.text}</strong>) : (<strong>{question.optionTwo.text}</strong>)}.</div></li>
                   </ul>
                   )
