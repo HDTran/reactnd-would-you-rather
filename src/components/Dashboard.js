@@ -53,7 +53,7 @@ function mapStateToProps({ authedUser, questions, users }, props) {
   return Object.assign({}, props, {
     authedUser,
     questions: Object.values(questions)
-      .sort((a,b) => ( a.timestamp - b.timestamp ))
+      .sort((a,b) => ( b.timestamp - a.timestamp ))
       .map((question) => ( Object.assign({}, question, {
         authorName: users[question.author].name,
         authorAvatarURL: users[question.author].avatarURL
