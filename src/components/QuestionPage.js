@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { handleAddQuestionAnswer } from '../actions/questions';
 
 class QuestionPage extends Component {
+  handleAnswer = (answer) => {
+    const { dispatch, question, authedUser } = this.props;
+    dispatch(handleAddQuestionAnswer({
+      authedUser,
+      qid: question.id,
+      answer
+    }));
+  }
   render() {
-    console.log('this.props', this.props);
-
     const { question, authedUser } = this.props;
   
     return (
       <div className="question-page">
         <div className="container">
           <header className="app-header">
-            <h1 className="app-title">Question Page</h1>
+            <h1 className="app-title">Question</h1>
           </header>
           <div>
             {question !== null && (
@@ -28,7 +35,10 @@ class QuestionPage extends Component {
                   </ul>
                   )
                   : (
-                    <div>You haven't answered.</div>
+                    <div>
+                      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionOne'); }}>{question.optionOne.text}</button>
+                      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionTwo'); }}>{question.optionTwo.text}</button>
+                    </div>
                   )}
                 </div>
               </div>

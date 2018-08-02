@@ -35,12 +35,11 @@ export function receiveQuestions (questions) {
   };
 }
 
-function addQuestionAnswer ({ id, authedUser, qid, answer }) {
+function addQuestionAnswer ({ qid, authedUser, answer }) {
   return {
     type: SAVE_QUESTION_ANSWER,
-    id,
-    authedUser,
     qid,
+    authedUser,
     answer
   };
 }
