@@ -48,7 +48,7 @@ function mapStateToProps({ authedUser, questions, users }) {
     authedUser,
     questions,
     users
-  }
+  };
 }
 
 export default withRouter(connect(mapStateToProps)(NewQuestion));

@@ -1,5 +1,5 @@
 import { saveQuestion, saveQuestionAnswer } from '../utils/api';
-import { showLoading, hideLoading } from 'react-redux-loading';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
@@ -9,7 +9,7 @@ function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question
-  }
+  };
 }
 
 export function handleAddQuestion (optionOneText, optionTwoText) {
@@ -51,5 +51,5 @@ export function handleAddQuestionAnswer (info) {
         dispatch(addQuestionAnswer(info))
       })
       .then(() => dispatch(hideLoading()));
-  }
+  };
 }

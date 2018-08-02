@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { LoadingBar } from 'react-redux-loading';
+import { LoadingBar } from 'react-redux-loading-bar';
 import { handleInitialData } from '../actions/shared';
 import Login from '../components/Login';
 import Nav from '../components/Nav';
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <LoadingBar/>
+          <LoadingBar showFastActions />
           <div className="app">
             <Nav/>
             {this.props.loading === true
@@ -41,7 +41,7 @@ class App extends Component {
 function mapStateToProps({ authedUser }) {
   return {
     loading: authedUser === null
-  }
+  };
 }
 
 export default connect(mapStateToProps)(App);
