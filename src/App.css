@@ -12,6 +12,10 @@ body {
   color: #343434;
 }
 
+.container {
+  max-width: 768px;
+}
+
 .top-navigation {
   background-color: #03717D;
   padding: 5px;
@@ -45,7 +49,7 @@ body {
   margin-bottom: 10px;
 }
 
-.leaderboard .card img, .dashboard .card img {
+.leaderboard .card img, .dashboard .card img, .question-page .card img {
   margin-right: 20px;
 }
 

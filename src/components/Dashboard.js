@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 class Dashboard extends Component {
   state = {
@@ -36,6 +37,7 @@ class Dashboard extends Component {
                       <img src={question.authorAvatarURL} className="rounded float-left" alt={question.author.name} width="100"/>
                       <h5 className="card-title">{question.author.name}</h5>
                       <p className="card-text">{question.authorName} asks, would you rather <strong>{question.optionOne.text}</strong> or <strong>{question.optionTwo.text}</strong>?</p>
+                      <NavLink to={'/questions/' + question.id} className="btn btn-outline-secondary float-right">View Poll</NavLink>
                     </div>
                   </div>
                 </div>
