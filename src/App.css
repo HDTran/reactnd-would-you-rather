@@ -15,6 +15,7 @@ body {
 .top-navigation {
   background-color: #03717D;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .top-navigation ul {
@@ -27,10 +28,27 @@ body {
   display: inline-block;
   padding: 5px 10px;
   color: #F2F8F8;
-  cursor: pointer;
 }
 
 .top-navigation ul li a {
   text-decoration: none;
   color: #F2F8F8;
+}
+
+.nav-logout { cursor: pointer; }
+
+.login .card {
+  cursor: pointer;
+}
+
+.leaderboard .card, .dashboard .card {
+  margin-bottom: 10px;
+}
+
+.leaderboard .card img, .dashboard .card img {
+  margin-right: 20px;
+}
+
+.dashboard .btn-group {
+  margin-bottom: 10px;
 }

@@ -1,13 +1,13 @@
 // import { saveLikeToggle, saveTweet } from '../utils/api';
 // import { showLoading, hideLoading } from 'react-redux-loading';
 
-// export const RECEIVE_TWEETS = 'RECEIVE_TWEETS';
-// export const TOGGLE_TWEET = 'TOGGLE_TWEET';
-// export const ADD_TWEET = 'ADD_TWEET';
+export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
+// export const TOGGLE_QUESTION = 'TOGGLE_QUESTION';
+// export const ADD_QUESTION = 'ADD_QUESTION';
 
 // function addTweet(tweet) {
 //   return {
-//     type: ADD_TWEET,
+//     type: ADD_QUESTION,
 //     tweet
 //   }
 // }
@@ -27,16 +27,16 @@
 //   }
 // }
 
-// export function receiveTweets (tweets) {
-//   return {
-//     type: RECEIVE_TWEETS,
-//     tweets
-//   };
-// }
+export function receiveQuestions (questions) {
+  return {
+    type: RECEIVE_QUESTIONS,
+    questions
+  };
+}
 
 // function toggleTweet ({ id, authedUser, hasLiked }) {
 //   return {
-//     type: TOGGLE_TWEET,
+//     type: TOGGLE_QUESTION,
 //     id,
 //     authedUser,
 //     hasLiked

@@ -17,7 +17,7 @@ class Nav extends Component {
             <li className="col-12 col-md-3"><NavLink to='/add' exact activeClassName='active'>New Question</NavLink></li>
             <li className="col-12 col-md-3"><NavLink to='/leaderboard'>Leader Board</NavLink></li>
             {this.props.authedUser && (
-              <li className="col-12 col-md-3" onClick={(e) => { this.handleLogout(); }}>{this.props.authedUser.name}: Logout</li>
+              <li className="col-12 col-md-3 nav-logout" onClick={(e) => { this.handleLogout(); }}>{this.props.authedUser.name}. Logout</li>
             )}
           </ul>
         </div>

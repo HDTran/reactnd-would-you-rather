@@ -11,16 +11,22 @@ class Login extends Component {
     const { users } = this.props;
 
     return (
-      <div className="container">
-        <header className="app-header">
-          <h1 className="app-title">Login</h1>
-        </header>
-        {users && users.map((user) => (
-          <div key={user.id} onClick={(e) => { this.handleLogin(user.id); }}>
-            <img src={user.avatarURL} alt={user.name} width="100" />
-            {user.name}
+      <div className="login">
+        <div className="container">
+          <header className="app-header">
+            <h1 className="app-title">Login as&hellip;</h1>
+          </header>
+          <div className="card-deck">
+          {users && users.map((user) => (
+            <div className="card text-center" key={user.id} onClick={(e) => { this.handleLogin(user.id); }}>
+              <div className="card-body">
+                <h5 className="card-title">{user.name}</h5>
+                <div><img className="rounded" src={user.avatarURL} alt={user.name} height="100" /></div>
+              </div>
+            </div>
+          ))}
           </div>
-        ))}
+        </div>
       </div>
     )
   }

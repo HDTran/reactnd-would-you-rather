@@ -1,7 +1,6 @@
 import { getInitialData } from '../utils/api';
 import { receiveUsers } from '../actions/users';
-// import { receiveTweets } from '../actions/tweets';
-// import { setAuthedUser } from '../actions/authedUser';
+import { receiveQuestions } from '../actions/questions';
 import { showLoading, hideLoading } from 'react-redux-loading';
 
 export function handleInitialData () {
@@ -10,8 +9,7 @@ export function handleInitialData () {
     return getInitialData()
       .then(({ users, questions }) => {
         dispatch(receiveUsers(users));
-        // dispatch(receiveTweets(questions));
-        // dispatch(setAuthedUser(AUTHED_ID));
+        dispatch(receiveQuestions(questions));
         dispatch(hideLoading());
       });
   }
