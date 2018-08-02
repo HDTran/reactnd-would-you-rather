@@ -35,10 +35,12 @@ class QuestionPage extends Component {
                   </ul>
                   )
                   : (
-                    <div>
-                      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionOne'); }}>{question.optionOne.text}</button>
-                      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionTwo'); }}>{question.optionTwo.text}</button>
-                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionOne'); }}>{question.optionOne.text}</button>
+                        <button type="button" className="btn btn-primary btn-lg btn-block" onClick={(e) => { this.handleAnswer('optionTwo'); }}>{question.optionTwo.text}</button>
+                      </li>
+                    </ul>
                   )}
                 </div>
               </div>
